@@ -9,23 +9,37 @@
 /* Begin PBXBuildFile section */
 		C0AEADFF244CCE0200D335C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEADFE244CCE0200D335C4 /* AppDelegate.swift */; };
 		C0AEAE01244CCE0200D335C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEAE00244CCE0200D335C4 /* SceneDelegate.swift */; };
-		C0AEAE03244CCE0200D335C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEAE02244CCE0200D335C4 /* ViewController.swift */; };
+		C0AEAE03244CCE0200D335C4 /* ShowRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEAE02244CCE0200D335C4 /* ShowRecipeViewController.swift */; };
 		C0AEAE06244CCE0200D335C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0AEAE04244CCE0200D335C4 /* Main.storyboard */; };
 		C0AEAE09244CCE0200D335C4 /* MyRecipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C0AEAE07244CCE0200D335C4 /* MyRecipes.xcdatamodeld */; };
 		C0AEAE0B244CCE0700D335C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0AEAE0A244CCE0700D335C4 /* Assets.xcassets */; };
 		C0AEAE0E244CCE0700D335C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0AEAE0C244CCE0700D335C4 /* LaunchScreen.storyboard */; };
+		C0AEAE16244CCE5700D335C4 /* RecipesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEAE15244CCE5700D335C4 /* RecipesTableViewController.swift */; };
+		C0AEAE18244CCEA500D335C4 /* IngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEAE17244CCEA500D335C4 /* IngredientsViewController.swift */; };
+		C0AEAE1A244CCF3800D335C4 /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEAE19244CCF3800D335C4 /* AddRecipeViewController.swift */; };
+		C0AEAE1E244CD30300D335C4 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEAE1D244CD30300D335C4 /* CustomButton.swift */; };
+		C0AEAE20244CD31100D335C4 /* Gradient + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEAE1F244CD31100D335C4 /* Gradient + Extension.swift */; };
+		C0AEAE22244CD37100D335C4 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEAE21244CD37100D335C4 /* SecondaryButton.swift */; };
+		C0AEAE24244CD39900D335C4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEAE23244CD39900D335C4 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C0AEADFB244CCE0200D335C4 /* MyRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0AEADFE244CCE0200D335C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0AEAE00244CCE0200D335C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C0AEAE02244CCE0200D335C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C0AEAE02244CCE0200D335C4 /* ShowRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRecipeViewController.swift; sourceTree = "<group>"; };
 		C0AEAE05244CCE0200D335C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0AEAE08244CCE0200D335C4 /* MyRecipes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyRecipes.xcdatamodel; sourceTree = "<group>"; };
 		C0AEAE0A244CCE0700D335C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0AEAE0D244CCE0700D335C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0AEAE0F244CCE0700D335C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0AEAE15244CCE5700D335C4 /* RecipesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewController.swift; sourceTree = "<group>"; };
+		C0AEAE17244CCEA500D335C4 /* IngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsViewController.swift; sourceTree = "<group>"; };
+		C0AEAE19244CCF3800D335C4 /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
+		C0AEAE1D244CD30300D335C4 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		C0AEAE1F244CD31100D335C4 /* Gradient + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient + Extension.swift"; sourceTree = "<group>"; };
+		C0AEAE21244CD37100D335C4 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
+		C0AEAE23244CD39900D335C4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +74,37 @@
 			children = (
 				C0AEADFE244CCE0200D335C4 /* AppDelegate.swift */,
 				C0AEAE00244CCE0200D335C4 /* SceneDelegate.swift */,
-				C0AEAE02244CCE0200D335C4 /* ViewController.swift */,
-				C0AEAE04244CCE0200D335C4 /* Main.storyboard */,
+				C0AEAE1B244CCF4500D335C4 /* Controllers */,
+				C0AEAE1C244CD2EE00D335C4 /* Views */,
 				C0AEAE0A244CCE0700D335C4 /* Assets.xcassets */,
+				C0AEAE23244CD39900D335C4 /* Constants.swift */,
 				C0AEAE0C244CCE0700D335C4 /* LaunchScreen.storyboard */,
 				C0AEAE0F244CCE0700D335C4 /* Info.plist */,
 				C0AEAE07244CCE0200D335C4 /* MyRecipes.xcdatamodeld */,
 			);
 			path = MyRecipes;
+			sourceTree = "<group>";
+		};
+		C0AEAE1B244CCF4500D335C4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C0AEAE02244CCE0200D335C4 /* ShowRecipeViewController.swift */,
+				C0AEAE15244CCE5700D335C4 /* RecipesTableViewController.swift */,
+				C0AEAE17244CCEA500D335C4 /* IngredientsViewController.swift */,
+				C0AEAE19244CCF3800D335C4 /* AddRecipeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C0AEAE1C244CD2EE00D335C4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C0AEAE04244CCE0200D335C4 /* Main.storyboard */,
+				C0AEAE1D244CD30300D335C4 /* CustomButton.swift */,
+				C0AEAE1F244CD31100D335C4 /* Gradient + Extension.swift */,
+				C0AEAE21244CD37100D335C4 /* SecondaryButton.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,10 +178,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0AEAE03244CCE0200D335C4 /* ViewController.swift in Sources */,
+				C0AEAE22244CD37100D335C4 /* SecondaryButton.swift in Sources */,
+				C0AEAE24244CD39900D335C4 /* Constants.swift in Sources */,
+				C0AEAE03244CCE0200D335C4 /* ShowRecipeViewController.swift in Sources */,
+				C0AEAE1A244CCF3800D335C4 /* AddRecipeViewController.swift in Sources */,
 				C0AEADFF244CCE0200D335C4 /* AppDelegate.swift in Sources */,
 				C0AEAE01244CCE0200D335C4 /* SceneDelegate.swift in Sources */,
+				C0AEAE18244CCEA500D335C4 /* IngredientsViewController.swift in Sources */,
+				C0AEAE1E244CD30300D335C4 /* CustomButton.swift in Sources */,
 				C0AEAE09244CCE0200D335C4 /* MyRecipes.xcdatamodeld in Sources */,
+				C0AEAE16244CCE5700D335C4 /* RecipesTableViewController.swift in Sources */,
+				C0AEAE20244CD31100D335C4 /* Gradient + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
