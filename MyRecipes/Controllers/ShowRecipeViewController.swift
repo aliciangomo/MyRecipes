@@ -9,7 +9,8 @@
 import UIKit
 import CoreData
 
-class ShowRecipeViewController: UIViewController {
+class ShowRecipeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -19,16 +20,20 @@ class ShowRecipeViewController: UIViewController {
     
     @IBOutlet weak var recipeTitle: UILabel!
     @IBOutlet weak var recipeLink: UILabel!
-    @IBOutlet weak var recipePasos: UILabel!
-    @IBOutlet weak var ingredientTable: UIView!
+    @IBOutlet weak var recipePasos: UITextView!
+    @IBOutlet weak var ingredientTable: UITableView!
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ingredientTable.register(UITableViewCell.self, forCellReuseIdentifier: "IngredientCell")
+        ingredientTable.delegate = self
+        ingredientTable.dataSource = self
         loadInfo()
-        
+        loadIngredients()
+        ingredientTable.reloadData()
     }
 
     
@@ -39,12 +44,32 @@ class ShowRecipeViewController: UIViewController {
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "ShowIngredients") {
-            let destinationVC = segue.destination as! IngredientsViewController
-            destinationVC.selectedRecipe = selectedRecipe
+    func loadIngredients(){
+        let request: NSFetchRequest<Ingredient> = Ingredient.fetchRequest()
+        let predicate = NSPredicate(format: "parentRecipe.title CONTAINS[cd] %@", selectedRecipe!.title!)
+        request.predicate = predicate
+        do {
+        ingredients = try context.fetch(request)
+        } catch {
+        print("Error loading ingredients \(error)")
         }
+        ingredientTable.reloadData()
+        print(ingredients)
     }
+
+    
+//    MARK: - Table Data Source
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ingredients.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell", for: indexPath)
+        cell.textLabel?.text = ingredients[indexPath.row].name
+        return cell
+    }
+    
     
 }
 

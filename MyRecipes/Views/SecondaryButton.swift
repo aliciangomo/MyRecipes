@@ -28,7 +28,7 @@ class SecondaryButton: UIButton {
 //        layer.borderWidth = 1.0
 //        layer.borderColor = (UIColor(named: K.BrandColors.green) as! CGColor)
         setTitleColor(UIColor.white, for: .normal)
-        setGradient(colorOne: UIColor(named: K.BrandColors.darkGreen)!, colorTwo: UIColor(named: K.BrandColors.green)!)
+        setGradient(colorOne: UIColor(named: K.BrandColors.beige)!, colorTwo: UIColor(named: K.BrandColors.orange)!)
         frame.size = CGSize(width: 350, height: 60)
     }
     

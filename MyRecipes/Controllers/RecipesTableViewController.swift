@@ -9,29 +9,38 @@
 import UIKit
 import CoreData
 
+
 class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
 
 
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var recipes = [Recipe]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "RecipeCell")
-        tableView.rowHeight = 80.0
+        tableView.rowHeight = 60.0
+        tableView.dataSource = self
+        tableView.delegate = self
+        loadRecipes()
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
         return recipes.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath)
-
+//        let imageView = cell.imageView!
+//        imageView.layer.cornerRadius = 8.0
+//        imageView.clipsToBounds = true
+//        imageView.image = UIImage(named: "carrot")
+        
+        cell.imageView!.image = UIImage(named: "carrot")
         cell.textLabel?.text = recipes[indexPath.row].title
 
         return cell
@@ -41,6 +50,7 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "ShowRecipe", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -50,8 +60,10 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
             if let indexPath = tableView.indexPathForSelectedRow {
                 destinationVC.selectedRecipe = recipes[indexPath.row]
             }
+        } else if(segue.identifier == "AddRecipe") {
+            let destinationVC = segue.destination as! AddRecipeViewController
+            destinationVC.context = context
         }
-        
     }
     
     // MARK: - Data manipulation methods
@@ -60,33 +72,40 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
         do {
             try context.save()
         } catch {
-            print("Error saving receta \(error)")
+            print("Error saving recipe \(error)")
         }
         tableView.reloadData()
     }
     
-    func loadRecipes(with request: NSFetchRequest<Recipe> = Recipe.fetchRequest(), predicate: NSPredicate? = nil) {
-            do {
-                recipes = try context.fetch(request)
-            } catch {
-                print(error)
-            }
-            tableView.reloadData()
+    func loadRecipes() {
+
+        let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
+        do {
+            recipes = try context.fetch(request)
+            print(recipes)
+        } catch {
+            print("Error loading recipes \(error)")
+        }
+        tableView.reloadData()
     }
     
-
     
     // MARK: - Search Bar delegate
     
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
           
-          let request : NSFetchRequest<Recipe> = Recipe.fetchRequest()
+        let request : NSFetchRequest<Recipe> = Recipe.fetchRequest()
 
-          let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
-          request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-
-          loadRecipes(with: request, predicate: predicate)
+        let predicate = NSPredicate(format: "Recipe.title CONTAINS[cd] %@", searchBar.text!)
+        request.predicate = predicate
           
+        do {
+              recipes = try context.fetch(request)
+        } catch {
+              print("Error loading recipes \(error)")
+        }
+        tableView.reloadData()
       }
 
       func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -97,14 +116,65 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
                   searchBar.resignFirstResponder()
               }
           }
-
       }
     
 //    MARK:- Add a recipe
     
     @IBAction func addRecipe(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "AddRecipe", sender: self)
+        
     }
+
     
+////    MARK:- Delete a recipe
+//
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+//        guard orientation == .right else { return nil }
+//
+//        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+//
+//            self.updateModel(at: indexPath)
+//
+//            }
+//
+//        deleteAction.image = UIImage(named: "􀈑")
+//
+//        return [deleteAction]
+//    }
+//
+//
+//    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+//        var options = SwipeOptions()
+//        options.expansionStyle = .destructive
+//        return options
+//    }
+//
+//    func updateModel (at indexPath: IndexPath) {
+//        let recipeForDeletion = self.recipes[indexPath.row]
+//        context.delete(recipeForDeletion)
+//        recipes.remove(at: indexPath.row)
+//
+//        do {
+//            try context.save()
+//        } catch {
+//            print("Could not delete recipe \(error)")
+//        }
+//    }
+//    
+    
+
+    
+    
+//    MARK: - Navigation
+    
+     @IBAction func unwindFromAddRecipe(_ sender: UIStoryboardSegue) {
+        if sender.source is AddRecipeViewController {
+            if let senderVC = sender.source as? AddRecipeViewController {
+                recipes.append(senderVC.newRecipe!)
+                saveRecipe(recipe: senderVC.newRecipe!)
+            }
+            tableView.reloadData()
+        }
+    }
     
 }

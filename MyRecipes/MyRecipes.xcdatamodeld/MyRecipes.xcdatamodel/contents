@@ -11,7 +11,7 @@
         <relationship name="ingredientes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Ingredient" inverseName="parentRecipe" inverseEntity="Ingredient"/>
     </entity>
     <elements>
-        <element name="Recipe" positionX="-63" positionY="-18" width="128" height="103"/>
         <element name="Ingredient" positionX="-431.90625" positionY="9.35546875" width="128" height="73"/>
+        <element name="Recipe" positionX="-63" positionY="-18" width="128" height="103"/>
     </elements>
 </model>
