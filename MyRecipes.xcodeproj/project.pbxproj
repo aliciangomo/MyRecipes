@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2C871889D9CDA1DEC17C599B /* Pods_MyRecipes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494B9DA70740313EBE4D9616 /* Pods_MyRecipes.framework */; };
 		C06C3ED124556E2B0076EF4A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C3ED024556E2B0076EF4A /* LoginViewController.swift */; };
+		C08F9931245B1D46008C46D7 /* SquaredImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F9930245B1D46008C46D7 /* SquaredImage + Extension.swift */; };
+		C08F9935245C7F42008C46D7 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F9934245C7F42008C46D7 /* EditViewController.swift */; };
 		C0AEADFF244CCE0200D335C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEADFE244CCE0200D335C4 /* AppDelegate.swift */; };
 		C0AEAE01244CCE0200D335C4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEAE00244CCE0200D335C4 /* SceneDelegate.swift */; };
 		C0AEAE03244CCE0200D335C4 /* ShowRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0AEAE02244CCE0200D335C4 /* ShowRecipeViewController.swift */; };
@@ -28,6 +30,8 @@
 		494B9DA70740313EBE4D9616 /* Pods_MyRecipes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyRecipes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68030BC304C8B7D6F09A3A57 /* Pods-MyRecipes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRecipes.debug.xcconfig"; path = "Target Support Files/Pods-MyRecipes/Pods-MyRecipes.debug.xcconfig"; sourceTree = "<group>"; };
 		C06C3ED024556E2B0076EF4A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = MyRecipes/Views/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		C08F9930245B1D46008C46D7 /* SquaredImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SquaredImage + Extension.swift"; sourceTree = "<group>"; };
+		C08F9934245C7F42008C46D7 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = SOURCE_ROOT; };
 		C0AEADFB244CCE0200D335C4 /* MyRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0AEADFE244CCE0200D335C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0AEAE00244CCE0200D335C4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 		C0AEAE1B244CCF4500D335C4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C08F9934245C7F42008C46D7 /* EditViewController.swift */,
 				C06C3ED024556E2B0076EF4A /* LoginViewController.swift */,
 				C0AEAE02244CCE0200D335C4 /* ShowRecipeViewController.swift */,
 				C0AEAE15244CCE5700D335C4 /* RecipesTableViewController.swift */,
@@ -110,6 +115,7 @@
 				C0AEAE1D244CD30300D335C4 /* CustomButton.swift */,
 				C0AEAE1F244CD31100D335C4 /* Gradient + Extension.swift */,
 				C0AEAE21244CD37100D335C4 /* SecondaryButton.swift */,
+				C08F9930245B1D46008C46D7 /* SquaredImage + Extension.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -246,7 +252,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C08F9935245C7F42008C46D7 /* EditViewController.swift in Sources */,
 				C06C3ED124556E2B0076EF4A /* LoginViewController.swift in Sources */,
+				C08F9931245B1D46008C46D7 /* SquaredImage + Extension.swift in Sources */,
 				C0AEAE22244CD37100D335C4 /* SecondaryButton.swift in Sources */,
 				C0AEAE24244CD39900D335C4 /* Constants.swift in Sources */,
 				C0AEAE03244CCE0200D335C4 /* ShowRecipeViewController.swift in Sources */,
@@ -404,6 +412,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQ23274A69;
 				INFOPLIST_FILE = MyRecipes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -423,6 +432,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HQ23274A69;
 				INFOPLIST_FILE = MyRecipes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

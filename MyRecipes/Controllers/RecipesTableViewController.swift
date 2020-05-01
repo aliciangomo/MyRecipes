@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SwipeCellKit
 
 
 class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
@@ -16,14 +17,18 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var recipes = [Recipe]()
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "RecipeCell")
-        tableView.rowHeight = 60.0
+        tableView.rowHeight = 80.0
         tableView.dataSource = self
         tableView.delegate = self
         loadRecipes()
+        print(recipes)
         tableView.reloadData()
     }
 
@@ -35,12 +40,23 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath)
-//        let imageView = cell.imageView!
+        
+        let imageView = cell.imageView!
+        imageView.image = UIImage(named:"icondesign")
+        imageView.contentMode = .scaleAspectFit
 //        imageView.layer.cornerRadius = 8.0
 //        imageView.clipsToBounds = true
-//        imageView.image = UIImage(named: "carrot")
+    
+//        cell.imageView?.translatesAutoresizingMaskIntoConstraints = false
+//        cell.imageView?.widthAnchor.constraint(equalToConstant: 64).isActive = true
+//        cell.imageView?.heightAnchor.constraint(equalToConstant: 64).isActive = true
         
-        cell.imageView!.image = UIImage(named: "carrot")
+//        let cropSquare = CGRect(x: 0, y: 0, width: 64.0, height: 64.0)
+//        imageView.image?.cgImage!.cropping(to: cropSquare)
+      
+//        cell.imageView!.image = UIImage(named: "carrot")
+        
+//        imageView.frame = CGRect(x: 0, y: 0, width: 64, height: 64)
         cell.textLabel?.text = recipes[indexPath.row].title
 
         return cell
@@ -90,7 +106,7 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     
-    // MARK: - Search Bar delegate
+    // MARK: - Search Bar delegate methods
     
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -126,43 +142,41 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     }
 
     
-////    MARK:- Delete a recipe
-//
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-//        guard orientation == .right else { return nil }
-//
-//        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-//
-//            self.updateModel(at: indexPath)
-//
-//            }
-//
-//        deleteAction.image = UIImage(named: "􀈑")
-//
-//        return [deleteAction]
-//    }
-//
-//
-//    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
-//        var options = SwipeOptions()
-//        options.expansionStyle = .destructive
-//        return options
-//    }
-//
-//    func updateModel (at indexPath: IndexPath) {
-//        let recipeForDeletion = self.recipes[indexPath.row]
-//        context.delete(recipeForDeletion)
-//        recipes.remove(at: indexPath.row)
-//
-//        do {
-//            try context.save()
-//        } catch {
-//            print("Could not delete recipe \(error)")
-//        }
-//    }
-//    
-    
+//    MARK:- Delete a recipe
 
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+
+            self.updateModel(at: indexPath)
+
+            }
+
+        deleteAction.image = UIImage(named: "􀈑")
+
+        return [deleteAction]
+    }
+
+
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .destructive
+        return options
+    }
+
+    func updateModel (at indexPath: IndexPath) {
+        let recipeForDeletion = self.recipes[indexPath.row]
+        context.delete(recipeForDeletion)
+        recipes.remove(at: indexPath.row)
+
+        do {
+            try context.save()
+        } catch {
+            print("Could not delete recipe \(error)")
+        }
+    }
+    
     
     
 //    MARK: - Navigation

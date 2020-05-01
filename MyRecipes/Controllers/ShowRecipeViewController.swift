@@ -33,6 +33,9 @@ class ShowRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         ingredientTable.dataSource = self
         loadInfo()
         loadIngredients()
+        
+        ingredientTable.tableFooterView = UIView()
+        
         ingredientTable.reloadData()
     }
 
@@ -70,6 +73,32 @@ class ShowRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
+//    MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "EditRecipe") {
+        let destinationVC = segue.destination as! EditViewController
+            
+            destinationVC.loadViewIfNeeded()
+            destinationVC.editedRecipe = selectedRecipe
+
+            destinationVC.titleField?.text! = recipeTitle.text!
+            destinationVC.linkField?.text! = recipeLink.text!
+            destinationVC.pasosView?.text! = recipePasos.text!
+            destinationVC.ingredients = ingredients
+            
+            }
+            
+    }
+    
+    @IBAction func unwindFromEditRecipe(_ sender: UIStoryboardSegue) {
+           if sender.source is EditViewController {
+               if let senderVC = sender.source as? EditViewController {
+                selectedRecipe = senderVC.editedRecipe
+               }
+            
+           }
+       }
     
 }
 

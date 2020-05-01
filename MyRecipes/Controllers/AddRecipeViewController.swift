@@ -37,9 +37,8 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
         ingredientTable.rowHeight = 30.00
         ingredientTable.dataSource = self
         ingredientTable.delegate = self
-
+        ingredientTable.tableFooterView = UIView()
         newRecipe = Recipe(context: self.context)
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -50,6 +49,10 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
     
 //    MARK: - TextField delegate methods
 
+        func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+            return true
+        }
+    
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             textField.becomeFirstResponder()
             return true
@@ -64,6 +67,21 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
         func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
             textField.resignFirstResponder()
         }
+    
+        func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+             if let title = titleField.text,
+                let textRange = Range(range, in: title) {
+                newRecipe!.title = title.replacingCharacters(in: textRange,
+                                                                  with: string)
+            }
+            
+            if let link = linkField.text,
+                let textRange = Range(range, in: link) {
+                newRecipe!.link = link.replacingCharacters(in: textRange,
+                                                                  with: string)
+            }
+            return true
+        }
 
 //    MARK: - TextView delegate methods
 
@@ -75,6 +93,15 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
         func textViewDidBeginEditing(_ textView: UITextView) {
             textView.text = nil
             textView.textColor = UIColor.black
+        }
+    
+        func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+            if let pasos = pasosView.text,
+                let textRange = Range(range, in: pasos) {
+                newRecipe!.pasos = pasos.replacingCharacters(in: textRange,
+                                                                  with: text)
+            }
+            return true
         }
     
 
