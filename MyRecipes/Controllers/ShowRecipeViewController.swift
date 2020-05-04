@@ -91,14 +91,7 @@ class ShowRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
             
     }
     
-    @IBAction func unwindFromEditRecipe(_ sender: UIStoryboardSegue) {
-           if sender.source is EditViewController {
-               if let senderVC = sender.source as? EditViewController {
-                selectedRecipe = senderVC.editedRecipe
-               }
-            
-           }
-       }
+    
     
 }
 

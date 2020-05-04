@@ -44,6 +44,7 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
         let imageView = cell.imageView!
         imageView.image = UIImage(named:"icondesign")
         imageView.contentMode = .scaleAspectFit
+        
 //        imageView.layer.cornerRadius = 8.0
 //        imageView.clipsToBounds = true
     
@@ -144,37 +145,33 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     
 //    MARK:- Delete a recipe
 
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        guard orientation == .right else { return nil }
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            if recipes.indices.contains(indexPath.row) {
+                let recipeForDeletion = recipes[indexPath.row]
+                context.delete(recipeForDeletion)
+                recipes.remove(at: indexPath.row)
 
-        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-
-            self.updateModel(at: indexPath)
-
+                do {
+                    try context.save()
+                } catch {
+                    print("Could not delete recipe \(error)")
+                }
             }
-
-        deleteAction.image = UIImage(named: "􀈑")
-
-        return [deleteAction]
-    }
-
-
-    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
-        var options = SwipeOptions()
-        options.expansionStyle = .destructive
-        return options
-    }
-
-    func updateModel (at indexPath: IndexPath) {
-        let recipeForDeletion = self.recipes[indexPath.row]
-        context.delete(recipeForDeletion)
-        recipes.remove(at: indexPath.row)
-
-        do {
-            try context.save()
-        } catch {
-            print("Could not delete recipe \(error)")
+            tableView.reloadData()
         }
+    }
+
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Delete"
     }
     
     

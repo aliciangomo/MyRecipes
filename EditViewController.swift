@@ -126,7 +126,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 do {
                     try context.save()
                 } catch {
-                    print("Could not delete recipe \(error)")
+                    print("Could not delete ingredient \(error)")
                 }
             }
             ingredientsEditTable.reloadData()
@@ -195,7 +195,10 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func updateRecipe(_ sender: Any) {
         saveEditedRecipe(recipe: editedRecipe!)
-        
+        let vc = ShowRecipeViewController()
+        vc.selectedRecipe = editedRecipe
+        vc.ingredients = ingredients
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     

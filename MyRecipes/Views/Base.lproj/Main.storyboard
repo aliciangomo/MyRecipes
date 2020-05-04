@@ -34,14 +34,23 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Link" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7GP-Qa-hce">
-                                                <rect key="frame" x="20" y="302" width="374" height="52"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Link" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7GP-Qa-hce">
+                                                <rect key="frame" x="20" y="302" width="374" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h5A-IW-aRI">
-                                                <rect key="frame" x="20" y="350" width="374" height="236"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="RBv-am-rGI">
+                                                <rect key="frame" x="20" y="665" width="374" height="303"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h5A-IW-aRI">
+                                                <rect key="frame" x="20" y="386.5" width="374" height="236.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IngredientCell" rowHeight="25" id="uur-sw-wwE">
@@ -52,13 +61,13 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cO-Dk-uqS">
-                                                                    <rect key="frame" x="54" y="0.0" width="320" height="25"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <rect key="frame" x="28" y="0.0" width="346" height="25"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Z9i-ra-LlR">
-                                                                    <rect key="frame" x="5" y="0.5" width="20" height="24"/>
+                                                                <imageView clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Z9i-ra-LlR">
+                                                                    <rect key="frame" x="0.0" y="0.5" width="20" height="24"/>
                                                                     <color key="tintColor" name="BrandGreen"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="Hr8-wv-1jd"/>
@@ -67,41 +76,49 @@
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="5cO-Dk-uqS" firstAttribute="leading" secondItem="Z9i-ra-LlR" secondAttribute="trailing" constant="29" id="5eU-eR-0NE"/>
                                                                 <constraint firstAttribute="bottom" secondItem="Z9i-ra-LlR" secondAttribute="bottom" id="P86-go-Pgt"/>
                                                                 <constraint firstAttribute="trailing" secondItem="5cO-Dk-uqS" secondAttribute="trailing" id="cTa-in-HXo"/>
                                                                 <constraint firstItem="5cO-Dk-uqS" firstAttribute="top" secondItem="NwM-EW-7Lh" secondAttribute="top" id="fz3-Hx-2NU"/>
                                                                 <constraint firstAttribute="bottom" secondItem="5cO-Dk-uqS" secondAttribute="bottom" id="lel-P0-U1T"/>
-                                                                <constraint firstItem="Z9i-ra-LlR" firstAttribute="leading" secondItem="NwM-EW-7Lh" secondAttribute="leading" constant="5" id="ued-cm-ZsU"/>
-                                                                <constraint firstItem="5cO-Dk-uqS" firstAttribute="leading" secondItem="Z9i-ra-LlR" secondAttribute="trailing" constant="29" id="z4K-pK-Pjn"/>
+                                                                <constraint firstItem="5cO-Dk-uqS" firstAttribute="leading" secondItem="Z9i-ra-LlR" secondAttribute="trailing" constant="8" id="sOn-xC-1qG"/>
+                                                                <constraint firstItem="Z9i-ra-LlR" firstAttribute="leading" secondItem="NwM-EW-7Lh" secondAttribute="leading" id="ued-cm-ZsU"/>
                                                                 <constraint firstItem="Z9i-ra-LlR" firstAttribute="top" secondItem="NwM-EW-7Lh" secondAttribute="top" id="zPr-Zt-ink"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="RBv-am-rGI">
-                                                <rect key="frame" x="20" y="624" width="374" height="303"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee0-Fh-yAe">
+                                                <rect key="frame" x="157.5" y="631" width="99" height="26"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" name="BrandGreen"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YvZ-zU-LgS">
+                                                <rect key="frame" x="160" y="358" width="94" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" name="BrandGreen"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="lB2-cm-Ice" secondAttribute="trailing" constant="20" id="0i6-mZ-Yui"/>
-                                            <constraint firstItem="h5A-IW-aRI" firstAttribute="top" secondItem="7GP-Qa-hce" secondAttribute="bottom" constant="27.5" id="8kx-Py-gho"/>
+                                            <constraint firstItem="RBv-am-rGI" firstAttribute="top" secondItem="ee0-Fh-yAe" secondAttribute="bottom" constant="8" id="25z-2B-zht"/>
+                                            <constraint firstItem="ee0-Fh-yAe" firstAttribute="top" secondItem="h5A-IW-aRI" secondAttribute="bottom" constant="8" id="8ih-ru-ezg"/>
+                                            <constraint firstItem="YvZ-zU-LgS" firstAttribute="top" secondItem="Jfw-RQ-7gA" secondAttribute="top" constant="358" id="AMm-q9-eT1"/>
+                                            <constraint firstItem="YvZ-zU-LgS" firstAttribute="centerX" secondItem="Jfw-RQ-7gA" secondAttribute="centerX" id="GmM-Us-58w"/>
                                             <constraint firstItem="s6d-yD-E9f" firstAttribute="top" secondItem="Jfw-RQ-7gA" secondAttribute="top" id="HqL-mw-0DJ"/>
                                             <constraint firstItem="lB2-cm-Ice" firstAttribute="leading" secondItem="Jfw-RQ-7gA" secondAttribute="leading" constant="20" id="IL0-M3-csR"/>
                                             <constraint firstItem="s6d-yD-E9f" firstAttribute="leading" secondItem="Jfw-RQ-7gA" secondAttribute="leading" id="IqN-4M-cNO"/>
                                             <constraint firstItem="7GP-Qa-hce" firstAttribute="top" secondItem="lB2-cm-Ice" secondAttribute="bottom" constant="8" id="KUO-jA-taQ"/>
+                                            <constraint firstItem="h5A-IW-aRI" firstAttribute="top" secondItem="YvZ-zU-LgS" secondAttribute="bottom" constant="8" id="KtL-IK-Lsp"/>
                                             <constraint firstAttribute="trailing" secondItem="s6d-yD-E9f" secondAttribute="trailing" id="Lxq-TU-TA8"/>
+                                            <constraint firstItem="YvZ-zU-LgS" firstAttribute="top" secondItem="7GP-Qa-hce" secondAttribute="bottom" constant="8" id="MEh-es-ZsL"/>
+                                            <constraint firstItem="ee0-Fh-yAe" firstAttribute="centerX" secondItem="Jfw-RQ-7gA" secondAttribute="centerX" id="OBI-Sz-rSs"/>
                                             <constraint firstItem="lB2-cm-Ice" firstAttribute="top" secondItem="s6d-yD-E9f" secondAttribute="bottom" constant="30" id="fwu-dP-EOQ"/>
                                             <constraint firstAttribute="trailing" secondItem="h5A-IW-aRI" secondAttribute="trailing" constant="20" id="jfs-dI-BFS"/>
-                                            <constraint firstItem="RBv-am-rGI" firstAttribute="top" secondItem="h5A-IW-aRI" secondAttribute="bottom" constant="38" id="rvG-S8-hkt"/>
+                                            <constraint firstItem="RBv-am-rGI" firstAttribute="top" secondItem="h5A-IW-aRI" secondAttribute="bottom" constant="42" id="rvG-S8-hkt"/>
                                             <constraint firstAttribute="trailing" secondItem="7GP-Qa-hce" secondAttribute="trailing" constant="20" id="tJ5-dc-FGb"/>
                                             <constraint firstItem="7GP-Qa-hce" firstAttribute="leading" secondItem="Jfw-RQ-7gA" secondAttribute="leading" constant="20" id="wnF-EX-X3Y"/>
                                             <constraint firstItem="h5A-IW-aRI" firstAttribute="leading" secondItem="Jfw-RQ-7gA" secondAttribute="leading" constant="20" id="ywd-AA-ozw"/>
@@ -125,7 +142,7 @@
                                 <items>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="77u-dh-VG7"/>
                                     <barButtonItem title="Edit" image="square.and.pencil" catalog="system" id="fQF-GM-DCX">
-                                        <color key="tintColor" name="BrandOrange"/>
+                                        <color key="tintColor" name="BrandDarkGreen"/>
                                         <connections>
                                             <segue destination="32j-vv-frR" kind="show" identifier="EditRecipe" id="8zv-RW-JAQ"/>
                                         </connections>
@@ -133,7 +150,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="rVZ-nD-o7x"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="AB5-Mq-YlP"/>
                                     <barButtonItem title="Delete" image="trash" catalog="system" id="1rm-0C-nXc">
-                                        <color key="tintColor" name="BrandOrange"/>
+                                        <color key="tintColor" name="BrandDarkGreen"/>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="mWm-E4-mEz"/>
                                 </items>
@@ -265,7 +282,7 @@
                             <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeCell" rowHeight="80" id="p8i-Hr-uXe">
                                 <rect key="frame" x="0.0" y="72" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p8i-Hr-uXe" id="pXf-Lm-mYx">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p8i-Hr-uXe" id="pXf-Lm-mYx">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -286,6 +303,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="Wbz-bM-NC0" firstAttribute="top" secondItem="pXf-Lm-mYx" secondAttribute="top" constant="8" id="0aj-z5-69h"/>
                                         <constraint firstAttribute="trailing" secondItem="Wbz-bM-NC0" secondAttribute="trailing" constant="8" id="1Bh-z7-JFe"/>
@@ -600,7 +618,7 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kBm-M4-tfd">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kBm-M4-tfd">
                                                                     <rect key="frame" x="0.0" y="2" width="25" height="21.5"/>
                                                                     <color key="tintColor" name="BrandGreen"/>
                                                                     <constraints>
@@ -707,7 +725,6 @@
                         <barButtonItem key="rightBarButtonItem" title="Update recipe" id="KMU-2W-PFB">
                             <connections>
                                 <action selector="updateRecipe:" destination="32j-vv-frR" id="CgL-xd-jrD"/>
-                                <segue destination="PgN-N7-LEU" kind="unwind" unwindAction="unwindFromEditRecipe:" id="N0B-cx-MQX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -720,14 +737,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oEK-wK-pHc" sceneMemberID="firstResponder"/>
-                <exit id="PgN-N7-LEU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1915.9420289855075" y="-608.03571428571422"/>
         </scene>
     </scenes>
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>
-        <image name="circle" catalog="system" width="128" height="121"/>
+        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="salad" width="2663.5" height="1776"/>
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>
@@ -737,9 +753,6 @@
         </namedColor>
         <namedColor name="BrandGreen">
             <color red="0.57999998331069946" green="0.66699999570846558" blue="0.16500000655651093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="BrandOrange">
-            <color red="0.89399999380111694" green="0.45100000500679016" blue="0.071000002324581146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
