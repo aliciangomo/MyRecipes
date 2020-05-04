@@ -23,7 +23,7 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "RecipeCell")
+//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "RecipeCell")
         tableView.rowHeight = 80.0
         tableView.dataSource = self
         tableView.delegate = self
@@ -39,26 +39,11 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath)
-        
-        let imageView = cell.imageView!
-        imageView.image = UIImage(named:"icondesign")
-        imageView.contentMode = .scaleAspectFit
-        
-//        imageView.layer.cornerRadius = 8.0
-//        imageView.clipsToBounds = true
-    
-//        cell.imageView?.translatesAutoresizingMaskIntoConstraints = false
-//        cell.imageView?.widthAnchor.constraint(equalToConstant: 64).isActive = true
-//        cell.imageView?.heightAnchor.constraint(equalToConstant: 64).isActive = true
-        
-//        let cropSquare = CGRect(x: 0, y: 0, width: 64.0, height: 64.0)
-//        imageView.image?.cgImage!.cropping(to: cropSquare)
-      
-//        cell.imageView!.image = UIImage(named: "carrot")
-        
-//        imageView.frame = CGRect(x: 0, y: 0, width: 64, height: 64)
-        cell.textLabel?.text = recipes[indexPath.row].title
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath) as! RecipesTableViewCell
+
+        cell.recipeListLabel.text = recipes[indexPath.row].title
+        cell.recipeListImage.layer.cornerRadius = 8.0
+        cell.recipeListImage.clipsToBounds = true
 
         return cell
     }

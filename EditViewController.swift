@@ -34,6 +34,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
         pasosView.layer.borderWidth = 0.7
         pasosView.layer.borderColor = UIColor.lightGray.cgColor
         pasosView.layer.cornerRadius = 5
+//        ingredientsEditTable.register(UITableViewCell.self, forCellReuseIdentifier: "IngredientEditedCell")
         ingredientsEditTable.rowHeight = 30.00
         ingredientsEditTable.dataSource = self
         ingredientsEditTable.delegate = self
@@ -84,7 +85,6 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
 
         func textViewDidBeginEditing(_ textView: UITextView) {
-            textView.text = nil
             textView.textColor = UIColor.black
         }
     
@@ -105,15 +105,15 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-          let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientEditedCell", for: indexPath)
-              cell.textLabel?.text = ingredients[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientEditedCell", for: indexPath) as! IngredientEditedTableViewCell
+              cell.editLabel.text = ingredients[indexPath.row].name
               return cell
     }
     
 //    MARK: - TableView delegate methods
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        ingredientsEditTable.deselectRow(at: indexPath, animated: true)
+        tableView.allowsSelection = false
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

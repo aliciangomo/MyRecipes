@@ -22,21 +22,24 @@ class ShowRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var recipeLink: UILabel!
     @IBOutlet weak var recipePasos: UITextView!
     @IBOutlet weak var ingredientTable: UITableView!
-    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ingredientTable.register(UITableViewCell.self, forCellReuseIdentifier: "IngredientCell")
         ingredientTable.delegate = self
         ingredientTable.dataSource = self
+        ingredientTable.allowsSelection = false
         loadInfo()
         loadIngredients()
         
         ingredientTable.tableFooterView = UIView()
         
         ingredientTable.reloadData()
+        
+        let bottomOffset = CGPoint(x: 0, y: self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
+        self.scrollView.setContentOffset(bottomOffset, animated: true)
     }
 
     
@@ -68,10 +71,16 @@ class ShowRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell", for: indexPath)
-        cell.textLabel?.text = ingredients[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell", for: indexPath) as! IngredientTableViewCell
+        cell.showLabel.text = ingredients[indexPath.row].name
         return cell
     }
+    
+//    MARK: - Tableview Delegate Methods
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//    }
     
 //    MARK: - Navigation
     

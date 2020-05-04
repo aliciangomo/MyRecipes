@@ -41,6 +41,15 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
         newRecipe = Recipe(context: self.context)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        DispatchQueue.main.async {
+            var frame = self.ingredientTable.frame
+            frame.size.height = self.ingredientTable.contentSize.height
+            self.ingredientTable.frame = frame
+        }
+    }
+
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self.view.endEditing(true)
@@ -112,12 +121,13 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientAddedCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientAddedCell", for: indexPath) as! IngredientAddedTableViewCell
 
-        cell.textLabel?.text = ingredients[indexPath.row].name
+        cell.addLabel.text = ingredients[indexPath.row].name
         return cell
     }
 
+            
 
 //    MARK: - Tableview delegate methods (Ingredients table)
 
