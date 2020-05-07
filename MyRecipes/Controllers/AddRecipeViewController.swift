@@ -140,8 +140,6 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { action in
-        
-//        let action = UIAlertAction(title: "Add", style: .default) {(action) in
 
             let newIngredient = Ingredient(context: self.context)
             newIngredient.name = nameTextField.text!
@@ -158,7 +156,6 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
             nameTextField = name
         }
 
-//        alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
 

@@ -154,8 +154,6 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
             alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { action in
         
 
-//           let action = UIAlertAction(title: "Add ingredient", style: .default) {(action) in
-
                let newIngredient = Ingredient(context: self.context)
                newIngredient.name = nameTextField.text!
                self.ingredients.append(newIngredient)
@@ -170,7 +168,6 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
                nameTextField = name
            }
 
-//           alert.addAction(action)
            present(alert, animated: true, completion: nil)
        }
 

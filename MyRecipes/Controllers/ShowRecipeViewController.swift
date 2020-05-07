@@ -92,7 +92,10 @@ class ShowRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     
 //    MARK: - Delete recipe
     
-
+    @IBAction func deleteRecipe(_ sender: UIBarButtonItem) {
+      
+    }
+    
     
 //    MARK: - Navigation to edit recipe
     
@@ -111,8 +114,6 @@ class ShowRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             
     }
-    
-    
-    
+
 }
 

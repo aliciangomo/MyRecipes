@@ -167,6 +167,10 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="AB5-Mq-YlP"/>
                                     <barButtonItem title="Delete" image="trash" catalog="system" id="1rm-0C-nXc">
                                         <color key="tintColor" name="BrandDarkGreen"/>
+                                        <connections>
+                                            <action selector="deleteRecipe:" destination="BYZ-38-t0r" id="Z9Q-Nd-bvN"/>
+                                            <segue destination="www-ib-G1q" kind="unwind" unwindAction="unwindFromAddRecipe:" id="UaW-Bm-1lr"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="mWm-E4-mEz"/>
                                 </items>
@@ -197,6 +201,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="www-ib-G1q" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1018.840579710145" y="-541.07142857142856"/>
         </scene>

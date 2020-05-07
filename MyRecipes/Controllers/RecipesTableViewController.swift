@@ -166,6 +166,18 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
             }
             tableView.reloadData()
         }
+        if sender.source is ShowRecipeViewController {
+            if let senderVC = sender.source as? ShowRecipeViewController {
+                context.delete(senderVC.selectedRecipe!)
+                do {
+                    try context.save()
+                } catch {
+                    print("Could not delete recipe \(error)")
+                }
+                loadRecipes()
+                tableView.reloadData()
+            }
+        }
     }
     
 }
