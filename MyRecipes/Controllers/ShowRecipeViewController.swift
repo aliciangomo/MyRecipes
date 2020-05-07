@@ -16,7 +16,9 @@ class ShowRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var selectedRecipe: Recipe?
     
+    
     var ingredients = [Ingredient]()
+    
     
     @IBOutlet weak var recipeTitle: UILabel!
     @IBOutlet weak var recipeLink: UILabel!
@@ -40,13 +42,25 @@ class ShowRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let bottomOffset = CGPoint(x: 0, y: self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
         self.scrollView.setContentOffset(bottomOffset, animated: true)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Home", style: .plain, target: self, action: #selector(recipesList))
+        
     }
+    
+   
+        
+    @objc func recipesList () {
+        let DestVC = storyboard!.instantiateViewController(withIdentifier: "MyRecipes") as! RecipesTableViewController
+        self.navigationController!.pushViewController(DestVC, animated: true)
+//        self.present(DestVC, animated: true, completion: nil)
+    }
+    
 
     
     func loadInfo(){
-        recipeTitle.text! = selectedRecipe!.title ?? "Nombre"
-        recipeLink.text! = selectedRecipe!.link ?? "Link"
-        recipePasos.text! = selectedRecipe!.pasos ?? "Pasos"
+        recipeTitle.text! = selectedRecipe!.title ?? "Recipe title"
+        recipeLink.text! = selectedRecipe!.link ?? "Recipe link"
+        recipePasos.text! = selectedRecipe!.pasos ?? "Recipe steps"
     }
     
     

@@ -34,7 +34,6 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
         pasosView.layer.borderWidth = 0.7
         pasosView.layer.borderColor = UIColor.lightGray.cgColor
         pasosView.layer.cornerRadius = 5
-//        ingredientsEditTable.register(UITableViewCell.self, forCellReuseIdentifier: "IngredientEditedCell")
         ingredientsEditTable.rowHeight = 30.00
         ingredientsEditTable.dataSource = self
         ingredientsEditTable.delegate = self
@@ -44,7 +43,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
 //    MARK: - TextField delegate methods
     
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
             return true
         }
     
@@ -195,10 +194,26 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func updateRecipe(_ sender: Any) {
         saveEditedRecipe(recipe: editedRecipe!)
-        let vc = ShowRecipeViewController()
+        
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "ShowController") as? ShowRecipeViewController else { return }
+        
+//        let vc = ShowRecipeViewController()
         vc.selectedRecipe = editedRecipe
         vc.ingredients = ingredients
-        navigationController?.pushViewController(vc, animated: true)
+//        self.present(vc, animated: true, completion: nil)
+//        self.navigationController!.pushViewController(vc, animated: true)
+//        navigationController?.pushViewController(vc, animated: true)
+        
+
+        if let navCtrl = self.navigationController
+        {
+           navCtrl.pushViewController(vc, animated: true)
+        }
+        else
+        {
+           let navCtrl = UINavigationController(rootViewController: vc)
+            self.present(navCtrl, animated: true, completion: nil)
+        }
     }
     
     

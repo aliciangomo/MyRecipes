@@ -41,13 +41,13 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
         newRecipe = Recipe(context: self.context)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.main.async {
-            var frame = self.ingredientTable.frame
-            frame.size.height = self.ingredientTable.contentSize.height
-            self.ingredientTable.frame = frame
-        }
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        DispatchQueue.main.async {
+//            var frame = self.ingredientTable.frame
+//            frame.size.height = self.ingredientTable.contentSize.height
+//            self.ingredientTable.frame = frame
+//        }
+//    }
 
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

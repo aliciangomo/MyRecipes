@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import SwipeCellKit
 
 
 class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
@@ -23,12 +22,10 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "RecipeCell")
         tableView.rowHeight = 80.0
         tableView.dataSource = self
         tableView.delegate = self
         loadRecipes()
-        print(recipes)
         tableView.reloadData()
     }
 
@@ -80,11 +77,9 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     func loadRecipes() {
-
         let request: NSFetchRequest<Recipe> = Recipe.fetchRequest()
         do {
             recipes = try context.fetch(request)
-            print(recipes)
         } catch {
             print("Error loading recipes \(error)")
         }
