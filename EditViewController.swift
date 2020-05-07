@@ -148,8 +148,13 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
            var nameTextField = UITextField()
 
            let alert = UIAlertController(title: "Add new ingredient", message: "", preferredStyle: .alert)
+        
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+            alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { action in
+        
 
-           let action = UIAlertAction(title: "Add ingredient", style: .default) {(action) in
+//           let action = UIAlertAction(title: "Add ingredient", style: .default) {(action) in
 
                let newIngredient = Ingredient(context: self.context)
                newIngredient.name = nameTextField.text!
@@ -158,14 +163,14 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
                self.saveIngredient(ingredient: newIngredient)
 
                self.ingredientsEditTable.reloadData()
-           }
+           }))
 
            alert.addTextField { (name) in
                name.placeholder = "Type ingredient"
                nameTextField = name
            }
 
-           alert.addAction(action)
+//           alert.addAction(action)
            present(alert, animated: true, completion: nil)
        }
 

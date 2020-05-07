@@ -90,13 +90,11 @@ class ShowRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-//    MARK: - Tableview Delegate Methods
+//    MARK: - Delete recipe
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//    }
+
     
-//    MARK: - Navigation
+//    MARK: - Navigation to edit recipe
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "EditRecipe") {
