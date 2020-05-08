@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
@@ -18,6 +18,8 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
     var ingredients = [Ingredient]()
 
 
+    @IBOutlet weak var noPicture: UILabel!
+    @IBOutlet weak var addImageView: UIImageView!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var linkField: UITextField!
     @IBOutlet weak var pasosView: UITextView!
@@ -40,14 +42,6 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
         ingredientTable.tableFooterView = UIView()
         newRecipe = Recipe(context: self.context)
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        DispatchQueue.main.async {
-//            var frame = self.ingredientTable.frame
-//            frame.size.height = self.ingredientTable.contentSize.height
-//            self.ingredientTable.frame = frame
-//        }
-//    }
 
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -116,22 +110,22 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
 
 //    MARK: - Tableview data source methods (Ingredients table)
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ingredients.count
-    }
+        }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientAddedCell", for: indexPath) as! IngredientAddedTableViewCell
 
         cell.addLabel.text = ingredients[indexPath.row].name
         return cell
-    }
+        }
 
             
 
 //    MARK: - Tableview delegate methods (Ingredients table)
 
-    @IBAction func addIngredient(_ sender: UIButton) {
+        @IBAction func addIngredient(_ sender: UIButton) {
 
         var nameTextField = UITextField()
 
@@ -162,39 +156,40 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
 
 //     MARK: - Data manipulation methods
 
-    func saveIngredient(ingredient: Ingredient) {
+        func saveIngredient(ingredient: Ingredient) {
         do {
             try context.save()
         } catch {
             print("Error saving receta \(error)")
         }
         ingredientTable.reloadData()
-    }
+        }
 
-    func loadIngredients(with request: NSFetchRequest<Ingredient> = Ingredient.fetchRequest(), predicate: NSPredicate? = nil){
+    
+        func loadIngredients(with request: NSFetchRequest<Ingredient> = Ingredient.fetchRequest(), predicate: NSPredicate? = nil){
         do {
         ingredients = try context.fetch(request)
         } catch {
         print("Error loading ingredients \(error)")
         }
         ingredientTable.reloadData()
-    }
+        }
 
 
 //     MARK: - Save recipe
 
-    @IBAction func finishRecipe(_ sender: UIBarButtonItem) {
+        @IBAction func finishRecipe(_ sender: UIBarButtonItem) {
         saveRecipe(recipe: newRecipe!)
-    }
+        }
 
 
-    func saveRecipe(recipe: Recipe) {
+        func saveRecipe(recipe: Recipe) {
         do {
             try context.save()
         } catch {
             print("Error saving receta \(error)")
         }
-    }
+        }
 
 //    MARK: - Navigation
 
@@ -202,5 +197,55 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
         if newRecipe != nil {
         }
     }
+    
+//    MARK: - Upload image
+    
+    @IBAction func addRecipeImage(_ sender: UIButton) {
+   
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        
+        let actionSheet = UIAlertController(title: "Photo Source", message: "Choose a photo source", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {action in
+            imagePickerController.sourceType = .camera
+            self.present(imagePickerController, animated: true, completion: nil)
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {action in
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion: nil)
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let userPickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        addImageView.image = userPickedImage
+        noPicture.isHidden = true
+        picker.dismiss(animated: true)
+        
+        if let imageData = addImageView.image?.pngData() {
+            saveImage(data: imageData)
+        }
+        
+    }
+    
+    func saveImage(data: Data) {
+        newRecipe?.img = data
+            
+        do {
+            try context.save()
+            print("Image is saved")
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
+    
+    
     
 }

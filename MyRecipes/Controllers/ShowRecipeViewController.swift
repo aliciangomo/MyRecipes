@@ -20,6 +20,7 @@ class ShowRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     var ingredients = [Ingredient]()
     
     
+    @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeTitle: UILabel!
     @IBOutlet weak var recipeLink: UILabel!
     @IBOutlet weak var recipePasos: UITextView!
@@ -35,7 +36,7 @@ class ShowRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         ingredientTable.allowsSelection = false
         loadInfo()
         loadIngredients()
-        
+        loadImage()
         ingredientTable.tableFooterView = UIView()
         
         ingredientTable.reloadData()
@@ -52,7 +53,6 @@ class ShowRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     @objc func recipesList () {
         let DestVC = storyboard!.instantiateViewController(withIdentifier: "MyRecipes") as! RecipesTableViewController
         self.navigationController!.pushViewController(DestVC, animated: true)
-//        self.present(DestVC, animated: true, completion: nil)
     }
     
 
@@ -76,7 +76,16 @@ class ShowRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         ingredientTable.reloadData()
         print(ingredients)
     }
-
+    
+    func loadImage() {
+         if selectedRecipe!.img != nil{
+            let image = UIImage(data: selectedRecipe!.img!)
+            recipeImageView.image = image
+         } else {
+            recipeImageView.image = UIImage(named: "salad")
+         }
+     }
+    
     
 //    MARK: - Table Data Source
     
@@ -87,6 +96,7 @@ class ShowRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell", for: indexPath) as! IngredientTableViewCell
         cell.showLabel.text = ingredients[indexPath.row].name
+        
         return cell
     }
     

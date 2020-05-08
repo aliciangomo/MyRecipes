@@ -5,6 +5,7 @@
         <relationship name="parentRecipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="ingredientes" inverseEntity="Recipe"/>
     </entity>
     <entity name="Recipe" representedClassName=".Recipe" syncable="YES" codeGenerationType="class">
+        <attribute name="img" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="link" optional="YES" attributeType="String"/>
         <attribute name="pasos" optional="YES" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
@@ -12,6 +13,6 @@
     </entity>
     <elements>
         <element name="Ingredient" positionX="-431.90625" positionY="9.35546875" width="128" height="73"/>
-        <element name="Recipe" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Recipe" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>
