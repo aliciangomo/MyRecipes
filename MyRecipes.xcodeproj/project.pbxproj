@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C871889D9CDA1DEC17C599B /* Pods_MyRecipes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494B9DA70740313EBE4D9616 /* Pods_MyRecipes.framework */; };
+		433C61129B40EB97D22FDC41 /* libPods-MyRecipes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCAD072D498CDD98A1FDEC17 /* libPods-MyRecipes.a */; };
 		C06C3ED124556E2B0076EF4A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C3ED024556E2B0076EF4A /* LoginViewController.swift */; };
 		C08F9931245B1D46008C46D7 /* SquaredImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F9930245B1D46008C46D7 /* SquaredImage + Extension.swift */; };
 		C08F9935245C7F42008C46D7 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08F9934245C7F42008C46D7 /* EditViewController.swift */; };
@@ -32,7 +32,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		494B9DA70740313EBE4D9616 /* Pods_MyRecipes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyRecipes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68030BC304C8B7D6F09A3A57 /* Pods-MyRecipes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRecipes.debug.xcconfig"; path = "Target Support Files/Pods-MyRecipes/Pods-MyRecipes.debug.xcconfig"; sourceTree = "<group>"; };
 		C06C3ED024556E2B0076EF4A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = MyRecipes/Views/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		C08F9930245B1D46008C46D7 /* SquaredImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SquaredImage + Extension.swift"; sourceTree = "<group>"; };
@@ -58,6 +57,7 @@
 		C0AEAE21244CD37100D335C4 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		C0AEAE23244CD39900D335C4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DAA42B8117844EE9F6F5BAB0 /* Pods-MyRecipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRecipes.release.xcconfig"; path = "Target Support Files/Pods-MyRecipes/Pods-MyRecipes.release.xcconfig"; sourceTree = "<group>"; };
+		DCAD072D498CDD98A1FDEC17 /* libPods-MyRecipes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyRecipes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C871889D9CDA1DEC17C599B /* Pods_MyRecipes.framework in Frameworks */,
+				433C61129B40EB97D22FDC41 /* libPods-MyRecipes.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +138,7 @@
 		C95C0F53027F6519F3A45A66 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				494B9DA70740313EBE4D9616 /* Pods_MyRecipes.framework */,
+				DCAD072D498CDD98A1FDEC17 /* libPods-MyRecipes.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,7 +163,6 @@
 				C0AEADF7244CCE0200D335C4 /* Sources */,
 				C0AEADF8244CCE0200D335C4 /* Frameworks */,
 				C0AEADF9244CCE0200D335C4 /* Resources */,
-				7C80D325511B7E607A895715 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -221,23 +220,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7C80D325511B7E607A895715 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyRecipes/Pods-MyRecipes-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyRecipes/Pods-MyRecipes-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyRecipes/Pods-MyRecipes-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E1669E3C1A3E0B8CC233DA98 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

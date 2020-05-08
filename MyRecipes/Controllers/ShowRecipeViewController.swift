@@ -97,6 +97,37 @@ class ShowRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
+//    MARK: - Send recipe
+    
+    
+    @IBAction func shareRecipe(_ sender: UIBarButtonItem) {
+    
+        let first = "Recipe: \(selectedRecipe?.title ?? "Test")"
+        let second = "Link to recipe: \(selectedRecipe?.link ?? "Test")"
+        let third = "Instructions: \(selectedRecipe?.pasos ?? "Test")"
+        var fourth = "Ingredients: "
+        
+        for i in ingredients {
+            fourth.append("\(i.name!), ")
+        }
+        print(ingredients)
+        print("This is the value of \(fourth)")
+//    // If you want to put an image
+//    let image : UIImage = UIImage(named: "image.jpg")!
+
+    let activityViewController : UIActivityViewController = UIActivityViewController(
+        activityItems: [first, second, third, fourth], applicationActivities: nil)
+
+    // This lines is for the popover you need to show in iPad
+    activityViewController.popoverPresentationController?.sourceView = (sender as! UIButton)
+
+
+        self.present(activityViewController, animated: true, completion: nil)
+    
+    }
+    
+    
+    
 //    MARK: - Navigation to edit recipe
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
