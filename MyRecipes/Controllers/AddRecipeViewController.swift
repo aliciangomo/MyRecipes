@@ -244,8 +244,4 @@ class AddRecipeViewController: UIViewController, UITextViewDelegate, UITextField
             print(error.localizedDescription)
         }
     }
-
-    
-    
-    
 }
