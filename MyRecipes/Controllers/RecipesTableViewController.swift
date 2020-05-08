@@ -41,6 +41,19 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
         cell.recipeListLabel.text = recipes[indexPath.row].title
         cell.recipeListImage.layer.cornerRadius = 8.0
         cell.recipeListImage.clipsToBounds = true
+        
+        if recipes[indexPath.row].img != nil{
+           let image = UIImage(data: recipes[indexPath.row].img!)
+            cell.recipeListImage.image = image
+        } else {
+            cell.recipeListImage.image = UIImage(named: "salad")
+        }
+
+//        if let image = UIImage(data: recipes[indexPath.row].img!) {
+//            cell.recipeListImage.image = image
+//        } else {
+//            cell.recipeListImage.image = UIImage(named: "salad")
+//        }
 
         return cell
     }

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class EditViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate {
+class EditViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -18,6 +18,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var ingredients = [Ingredient]()
 
     
+    @IBOutlet weak var editImageView: UIImageView!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var linkField: UITextField!
     @IBOutlet weak var pasosView: UITextView!
@@ -38,7 +39,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
         ingredientsEditTable.dataSource = self
         ingredientsEditTable.delegate = self
         ingredientsEditTable.tableFooterView = UIView()
-        
+        editImageView.alpha = 0.25
     }
     
 //    MARK: - TextField delegate methods
@@ -172,6 +173,53 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
        }
 
     
+//    MARK:- Change picture
+    
+    @IBAction func changePicture(_ sender: UIButton) {
+        let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate = self
+            
+            let actionSheet = UIAlertController(title: "Photo Source", message: "Choose a photo source", preferredStyle: .actionSheet)
+            
+            actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {action in
+                imagePickerController.sourceType = .camera
+                self.present(imagePickerController, animated: true, completion: nil)
+            }))
+            
+            actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {action in
+                imagePickerController.sourceType = .photoLibrary
+                self.present(imagePickerController, animated: true, completion: nil)
+            }))
+            
+            actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            self.present(actionSheet, animated: true, completion: nil)
+        }
+
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            guard let userPickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+            editImageView.image = userPickedImage
+            editImageView.alpha = 1
+            picker.dismiss(animated: true)
+            
+            if let imageData = editImageView.image?.pngData() {
+                saveImage(data: imageData)
+            }
+            
+        }
+        
+        func saveImage(data: Data) {
+            editedRecipe?.img = data
+                
+            do {
+                try context.save()
+                print("Image is saved")
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    
+    
 //     MARK: - Data manipulation methods
 
     func saveIngredient(ingredient: Ingredient) {
@@ -199,13 +247,8 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "ShowController") as? ShowRecipeViewController else { return }
         
-//        let vc = ShowRecipeViewController()
         vc.selectedRecipe = editedRecipe
         vc.ingredients = ingredients
-//        self.present(vc, animated: true, completion: nil)
-//        self.navigationController!.pushViewController(vc, animated: true)
-//        navigationController?.pushViewController(vc, animated: true)
-        
 
         if let navCtrl = self.navigationController
         {
