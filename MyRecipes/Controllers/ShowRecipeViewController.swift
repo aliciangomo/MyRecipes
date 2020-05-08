@@ -128,8 +128,8 @@ class ShowRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
     let activityViewController : UIActivityViewController = UIActivityViewController(
         activityItems: [first, second, third, fourth], applicationActivities: nil)
 
-    // This lines is for the popover you need to show in iPad
-    activityViewController.popoverPresentationController?.sourceView = (sender as! UIButton)
+//    // This lines is for the popover you need to show in iPad
+//    activityViewController.popoverPresentationController?.sourceView = (sender as! UIButton)
 
 
         self.present(activityViewController, animated: true, completion: nil)
