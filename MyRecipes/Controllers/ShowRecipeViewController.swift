@@ -38,14 +38,10 @@ class ShowRecipeViewController: UIViewController, UITableViewDelegate, UITableVi
         loadIngredients()
         loadImage()
         ingredientTable.tableFooterView = UIView()
-        
         ingredientTable.reloadData()
-        
-        let bottomOffset = CGPoint(x: 0, y: self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
-        self.scrollView.setContentOffset(bottomOffset, animated: true)
-        
+//        let bottomOffset = CGPoint(x: 0, y: self.scrollView.contentSize.height - self.scrollView.bounds.size.height)
+//        self.scrollView.setContentOffset(bottomOffset, animated: true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Home", style: .plain, target: self, action: #selector(recipesList))
-        
     }
     
    

@@ -16,6 +16,7 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var recipes = [Recipe]()
     
+    
     @IBOutlet weak var searchBar: UISearchBar!
     
     
@@ -27,7 +28,34 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
         tableView.delegate = self
         loadRecipes()
         tableView.reloadData()
+//        let exampleRecipe = Recipe(context: context)
+//        let otherRecipe: Recipe != exampleRecipe
+//        if recipes.isEmpty {
+//            loadExampleRecipe(recipe: exampleRecipe)
+//        } else if recipes.isEmpty == false && recipes.contains(recipe) {
+//            context.delete(exampleRecipe)
+//            recipes.remove(exampleRecipe)
+//
+//            do {
+//                try context.save()
+//            } catch {
+//                print("Could not delete recipe \(error)")
+//            }
+//        }
     }
+
+    
+    // MARK: - Load example recipe
+    
+    
+//    @objc func loadExampleRecipe(recipe: Recipe) {
+//        recipe.title = "Avocado salad"
+//        recipe.img = UIImage(named: "salad")!.pngData()
+//        recipe.pasos = "Cut all ingredienst in small pieces and add them to a bowl. Season to taste with the salt, olive oil and vinegar"
+//        saveRecipe(recipe: recipe)
+//        recipes.append(recipe)
+//    }
+    
 
     // MARK: - Table view data source
 
@@ -48,12 +76,6 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
         } else {
             cell.recipeListImage.image = UIImage(named: "salad")
         }
-
-//        if let image = UIImage(data: recipes[indexPath.row].img!) {
-//            cell.recipeListImage.image = image
-//        } else {
-//            cell.recipeListImage.image = UIImage(named: "salad")
-//        }
 
         return cell
     }

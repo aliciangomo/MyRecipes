@@ -1,4 +1,4 @@
-module Pods_MyRecipes {
+framework module Pods_MyRecipes {
   umbrella header "Pods-MyRecipes-umbrella.h"
 
   export *

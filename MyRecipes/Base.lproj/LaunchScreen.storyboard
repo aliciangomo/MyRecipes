@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -23,8 +23,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="asparagus-and-blank-paper-on-a-mat-4032977" translatesAutoresizingMaskIntoConstraints="NO" id="aNa-nw-7wq">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A place to save your own recipes!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSk-dr-3zy">
-                                <rect key="frame" x="100" y="344" width="294" height="418"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A place to save your recipes and your memories! :)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSk-dr-3zy">
+                                <rect key="frame" x="120" y="344" width="274" height="418"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
                                 <color key="textColor" name="BrandDarkGreen"/>
@@ -33,14 +33,19 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="eSk-dr-3zy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="HOZ-xj-8ID"/>
+                            <constraint firstItem="eSk-dr-3zy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="HOZ-xj-8ID"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eSk-dr-3zy" secondAttribute="trailing" constant="20" id="IbP-jv-480"/>
+                            <constraint firstItem="aNa-nw-7wq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Sho-8c-BoM"/>
+                            <constraint firstItem="aNa-nw-7wq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="SqM-tN-obp"/>
                             <constraint firstItem="aNa-nw-7wq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UhD-gy-7A3"/>
+                            <constraint firstItem="eSk-dr-3zy" firstAttribute="top" secondItem="aNa-nw-7wq" secondAttribute="bottom" constant="-552" id="ZlQ-vg-LEb"/>
                             <constraint firstAttribute="bottom" secondItem="aNa-nw-7wq" secondAttribute="bottom" id="fSo-RL-STq"/>
+                            <constraint firstItem="aNa-nw-7wq" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="nFK-ST-hjN"/>
                             <constraint firstItem="eSk-dr-3zy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="300" id="qnn-RS-3ik"/>
                             <constraint firstItem="aNa-nw-7wq" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="rbq-bt-JkU"/>
                             <constraint firstItem="aNa-nw-7wq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sln-FM-y2f"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eSk-dr-3zy" secondAttribute="bottom" constant="100" id="taf-xV-dK4"/>
+                            <constraint firstAttribute="bottom" secondItem="aNa-nw-7wq" secondAttribute="bottom" id="wVb-Qj-gQy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
