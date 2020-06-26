@@ -18,7 +18,7 @@ extension UINavigationBar {
         // but if you use larget titles, then in viewDidLoad must write
         // navigationController?.view.backgroundColor = // your color
         self.barTintColor = .white
-        self.isTranslucent = true
+        self.isTranslucent = false
 
         // for larget titles
         // self.prefersLargeTitles = true
